@@ -27,7 +27,7 @@ const HeroSection = () => {
           <div className="text-center">
             <Icon name="Truck" size={48} className="text-gold mx-auto mb-4" />
             <h3 className="text-xl font-semibold mb-2">Быстрая доставка</h3>
-            <p className="text-cream/80">По Москве за 2-4 часа</p>
+            <p className="text-cream/80">По Челябинску за 2-4 часа</p>
           </div>
           <div className="text-center">
             <Icon name="Award" size={48} className="text-gold mx-auto mb-4" />

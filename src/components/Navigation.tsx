@@ -21,11 +21,17 @@ const Navigation = () => {
           <a href="/certificates" className="hover:text-gold transition-colors">
             Сертификаты
           </a>
+          <a href="/loyalty" className="hover:text-gold transition-colors">
+            Программа лояльности
+          </a>
           <a href="/faq" className="hover:text-gold transition-colors">
             FAQ
           </a>
           <a href="#about" className="hover:text-gold transition-colors">
             О нас
+          </a>
+          <a href="/profile" className="hover:text-gold transition-colors">
+            <Icon name="User" size={20} />
           </a>
           <button
             onClick={() => (window.location.href = "/checkout")}

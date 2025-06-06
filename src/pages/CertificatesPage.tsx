@@ -102,37 +102,56 @@ const CertificatesPage = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-gold/20 to-yellow-100 p-8 rounded-lg">
-              <Icon
-                name="Gift"
-                size={64}
-                className="text-coffee-dark mx-auto mb-6"
-              />
-              <h3 className="text-2xl font-bold text-coffee-dark text-center mb-4">
-                Превью сертификата
-              </h3>
-              <div className="bg-white p-6 rounded-lg shadow-lg">
-                <div className="text-center mb-4">
-                  <h4 className="text-xl font-bold text-coffee-dark">
-                    COFFEE GRINDER
-                  </h4>
-                  <p className="text-gray-600">Подарочный сертификат</p>
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+              <h2 className="text-2xl font-semibold text-coffee-dark mb-6">
+                Предварительный просмотр
+              </h2>
+
+              <div className="bg-gradient-to-r from-coffee-dark to-coffee-medium p-8 rounded-lg text-cream relative overflow-hidden">
+                <div className="absolute top-4 right-4">
+                  <Icon name="Gift" size={32} className="text-gold" />
                 </div>
-                <div className="text-center mb-4">
-                  <span className="text-3xl font-bold text-gold">
+
+                <div className="text-center">
+                  <div className="flex items-center justify-center gap-2 mb-4">
+                    <Icon name="Coffee" size={24} className="text-gold" />
+                    <span className="text-lg font-bold">COFFEE GRINDER</span>
+                  </div>
+
+                  <h3 className="text-2xl font-bold mb-2">
+                    Подарочный сертификат
+                  </h3>
+                  <div className="text-4xl font-bold text-gold mb-4">
                     {amount}₽
+                  </div>
+
+                  {recipientName && (
+                    <p className="text-lg mb-2">Для: {recipientName}</p>
+                  )}
+
+                  {message && (
+                    <div className="bg-white/10 p-4 rounded-lg mt-4">
+                      <p className="text-sm italic">"{message}"</p>
+                    </div>
+                  )}
+
+                  <div className="mt-6 text-sm text-cream/80">
+                    Действителен в течение 12 месяцев
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 bg-gold/20 p-4 rounded-lg">
+                <div className="flex items-center gap-2 mb-2">
+                  <Icon name="Star" size={20} className="text-coffee-dark" />
+                  <span className="font-semibold">
+                    Бонус за покупку сертификата
                   </span>
                 </div>
-                {recipientName && (
-                  <p className="text-center text-coffee-dark mb-2">
-                    Для: <strong>{recipientName}</strong>
-                  </p>
-                )}
-                {message && (
-                  <p className="text-sm text-gray-600 italic text-center">
-                    "{message}"
-                  </p>
-                )}
+                <p className="text-sm text-gray-600">
+                  Получите {Math.floor(amount / 20)} баллов в программе
+                  лояльности
+                </p>
               </div>
             </div>
           </div>
