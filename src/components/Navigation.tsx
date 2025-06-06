@@ -15,22 +15,22 @@ const Navigation = () => {
         </div>
 
         <div className="hidden md:flex space-x-8 items-center">
-          <a href="#catalog" className="hover:text-gold transition-colors">
+          <a href="/catalog" className="hover:text-gold transition-colors">
             Каталог
           </a>
-          <a href="#beans" className="hover:text-gold transition-colors">
-            Зерновой кофе
+          <a href="/certificates" className="hover:text-gold transition-colors">
+            Сертификаты
           </a>
-          <a href="#ground" className="hover:text-gold transition-colors">
-            Молотый
-          </a>
-          <a href="#accessories" className="hover:text-gold transition-colors">
-            Аксессуары
+          <a href="/faq" className="hover:text-gold transition-colors">
+            FAQ
           </a>
           <a href="#about" className="hover:text-gold transition-colors">
             О нас
           </a>
-          <button className="bg-gold text-coffee-dark px-4 py-2 rounded-lg hover:bg-yellow-500 transition-colors">
+          <button
+            onClick={() => (window.location.href = "/checkout")}
+            className="bg-gold text-coffee-dark px-4 py-2 rounded-lg hover:bg-yellow-500 transition-colors"
+          >
             <Icon name="ShoppingCart" size={20} />
           </button>
         </div>

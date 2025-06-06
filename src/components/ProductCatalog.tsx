@@ -5,6 +5,7 @@ const ProductCatalog = () => {
   const [activeFilter, setActiveFilter] = useState("all");
   const [sortBy, setSortBy] = useState("popularity");
   const [roastFilter, setRoastFilter] = useState("all");
+  const [brewMethodFilter, setBrewMethodFilter] = useState("all");
 
   const products = [
     {
@@ -13,45 +14,191 @@ const ProductCatalog = () => {
       price: 1200,
       category: "beans",
       roast: "medium",
+      brewMethod: "espresso",
       image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400",
       description: "Яркий фруктовый вкус с цитрусовыми нотами",
+      rating: 4.8,
+      popularity: 95,
+      isNew: false,
+      inStock: true,
+      region: "Эфиопия",
+      taste: "Цитрус, ягоды",
     },
     {
       id: 2,
-      name: "Колумбия Супремо",
-      price: 950,
-      category: "beans",
-      roast: "medium",
+      name: "Эспрессо классический",
+      price: 180,
+      category: "drinks",
+      roast: "dark",
+      brewMethod: "espresso",
       image:
-        "https://images.unsplash.com/photo-1587734195503-904fca47e0d9?w=400",
-      description: "Сбалансированный вкус с шоколадными нотами",
+        "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=400",
+      description: "Классический эспрессо с насыщенным вкусом",
+      rating: 4.9,
+      popularity: 100,
+      isNew: false,
+      inStock: true,
     },
     {
       id: 3,
-      name: "Эспрессо-смесь",
-      price: 850,
-      category: "ground",
-      roast: "dark",
+      name: "Капучино",
+      price: 220,
+      category: "drinks",
+      roast: "medium",
+      brewMethod: "espresso",
       image:
-        "https://images.unsplash.com/photo-1586985564150-0d4b98b7a8fc?w=400",
-      description: "Идеально для эспрессо машин",
+        "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400",
+      description: "Эспрессо с взбитым молоком",
+      rating: 4.7,
+      popularity: 90,
+      isNew: false,
+      inStock: true,
     },
     {
       id: 4,
-      name: "Кофемолка Baratza",
+      name: "Латте",
+      price: 250,
+      category: "drinks",
+      roast: "medium",
+      brewMethod: "espresso",
+      image: "https://images.unsplash.com/photo-1561882468-9110e03e0f78?w=400",
+      description: "Нежный кофе с молоком и пенкой",
+      rating: 4.6,
+      popularity: 85,
+      isNew: false,
+      inStock: true,
+    },
+    {
+      id: 5,
+      name: "Бабл кофе",
+      price: 320,
+      category: "drinks",
+      roast: "medium",
+      brewMethod: "cold",
+      image:
+        "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400",
+      description: "Взбитый холодный кофе с молоком",
+      rating: 4.4,
+      popularity: 70,
+      isNew: true,
+      inStock: true,
+    },
+    {
+      id: 6,
+      name: "Айс кофе",
+      price: 280,
+      category: "drinks",
+      roast: "medium",
+      brewMethod: "cold",
+      image:
+        "https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=400",
+      description: "Освежающий холодный кофе",
+      rating: 4.5,
+      popularity: 75,
+      isNew: false,
+      inStock: true,
+    },
+    {
+      id: 7,
+      name: "Раф кофе",
+      price: 290,
+      category: "drinks",
+      roast: "medium",
+      brewMethod: "espresso",
+      image:
+        "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400",
+      description: "Кофе со сливками и ванилью",
+      rating: 4.3,
+      popularity: 65,
+      isNew: false,
+      inStock: true,
+    },
+    {
+      id: 8,
+      name: "Колумбия Супремо (пакет 250г)",
+      price: 950,
+      category: "packaged",
+      roast: "medium",
+      brewMethod: "any",
+      image:
+        "https://images.unsplash.com/photo-1587734195503-904fca47e0d9?w=400",
+      description: "Сбалансированный вкус с шоколадными нотами",
+      rating: 4.7,
+      popularity: 88,
+      isNew: false,
+      inStock: true,
+      region: "Колумбия",
+      taste: "Шоколад, орехи",
+    },
+    {
+      id: 9,
+      name: "Бразилия Сантос (пакет 500г)",
+      price: 1400,
+      category: "packaged",
+      roast: "dark",
+      brewMethod: "any",
+      image:
+        "https://images.unsplash.com/photo-1580933073521-dc49ac0d4e6a?w=400",
+      description: "Классический бразильский кофе",
+      rating: 4.5,
+      popularity: 80,
+      isNew: false,
+      inStock: true,
+      region: "Бразилия",
+      taste: "Карамель, какао",
+    },
+    {
+      id: 10,
+      name: "Кофемолка Baratza Encore",
       price: 15000,
       category: "accessories",
       roast: "",
+      brewMethod: "",
       image:
         "https://images.unsplash.com/photo-1523709272011-5d8fb91ecc65?w=400",
       description: "Профессиональная кофемолка для дома",
+      rating: 4.9,
+      popularity: 60,
+      isNew: false,
+      inStock: true,
+    },
+    {
+      id: 11,
+      name: "Темпер для эспрессо",
+      price: 2500,
+      category: "accessories",
+      roast: "",
+      brewMethod: "",
+      image:
+        "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400",
+      description: "Профессиональный темпер 58мм",
+      rating: 4.6,
+      popularity: 45,
+      isNew: true,
+      inStock: true,
+    },
+    {
+      id: 12,
+      name: "Молочник для капучино",
+      price: 1200,
+      category: "accessories",
+      roast: "",
+      brewMethod: "",
+      image:
+        "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400",
+      description: "Стальной молочник 600мл",
+      rating: 4.4,
+      popularity: 55,
+      isNew: false,
+      inStock: true,
     },
   ];
 
   const filters = [
     { key: "all", label: "Все товары" },
+    { key: "drinks", label: "Напитки" },
     { key: "beans", label: "Зерновой кофе" },
-    { key: "ground", label: "Молотый кофе" },
+    { key: "packaged", label: "Кофе в пакетах" },
     { key: "accessories", label: "Аксессуары" },
   ];
 
@@ -62,18 +209,29 @@ const ProductCatalog = () => {
     { key: "dark", label: "Темная" },
   ];
 
+  const brewMethodFilters = [
+    { key: "all", label: "Любой способ" },
+    { key: "espresso", label: "Эспрессо" },
+    { key: "filter", label: "Фильтр" },
+    { key: "cold", label: "Холодное приготовление" },
+    { key: "any", label: "Универсальный" },
+  ];
+
   const sortOptions = [
     { key: "popularity", label: "По популярности" },
     { key: "price-low", label: "По цене (возрастание)" },
     { key: "price-high", label: "По цене (убывание)" },
     { key: "rating", label: "По рейтингу" },
+    { key: "newest", label: "Новинки" },
   ];
 
   let filteredProducts = products.filter((product) => {
     const categoryMatch =
       activeFilter === "all" || product.category === activeFilter;
     const roastMatch = roastFilter === "all" || product.roast === roastFilter;
-    return categoryMatch && roastMatch;
+    const brewMethodMatch =
+      brewMethodFilter === "all" || product.brewMethod === brewMethodFilter;
+    return categoryMatch && roastMatch && brewMethodMatch;
   });
 
   // Сортировка
@@ -85,6 +243,8 @@ const ProductCatalog = () => {
         return b.price - a.price;
       case "rating":
         return b.rating - a.rating;
+      case "newest":
+        return b.isNew ? 1 : -1;
       case "popularity":
       default:
         return b.popularity - a.popularity;
@@ -100,7 +260,7 @@ const ProductCatalog = () => {
 
         {/* Фильтры и сортировка */}
         <div className="bg-white p-6 rounded-lg shadow-sm mb-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Категория
@@ -110,7 +270,7 @@ const ProductCatalog = () => {
                   <button
                     key={filter.key}
                     onClick={() => setActiveFilter(filter.key)}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                    className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                       activeFilter === filter.key
                         ? "bg-coffee-dark text-cream"
                         : "bg-gray-100 text-gray-700 hover:bg-coffee-light"
@@ -132,6 +292,23 @@ const ProductCatalog = () => {
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coffee-medium"
               >
                 {roastFilters.map((filter) => (
+                  <option key={filter.key} value={filter.key}>
+                    {filter.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Способ приготовления
+              </label>
+              <select
+                value={brewMethodFilter}
+                onChange={(e) => setBrewMethodFilter(e.target.value)}
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-coffee-medium"
+              >
+                {brewMethodFilters.map((filter) => (
                   <option key={filter.key} value={filter.key}>
                     {filter.label}
                   </option>
@@ -182,6 +359,13 @@ const ProductCatalog = () => {
                   <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
                     <span className="bg-red-500 text-white px-3 py-1 rounded">
                       Нет в наличии
+                    </span>
+                  </div>
+                )}
+                {product.isNew && (
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-gold text-coffee-dark px-3 py-1 rounded text-sm font-medium">
+                      Новинка
                     </span>
                   </div>
                 )}
